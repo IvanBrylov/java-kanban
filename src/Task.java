@@ -4,12 +4,7 @@ public class Task {
     private String description;
     private Status status;
 
-    public Task(String task, String description, Status status) {
-        this.name = task;
-        this.description = description;
-    }
-
-    public Task(String task, Status status, String description) {
+       public Task(String task, Status status, String description) {
         this.name = task;
         this.description = description;
         this.status = status;
