@@ -52,7 +52,7 @@ public class Main {
         System.out.println("Список эпиков");
         taskManager.printAllEpics();
         System.out.println("-".repeat(50));
-        taskManager.printEpicFromId(epic1Created.getId());
+        taskManager.printEpicFromId();
         System.out.println("-".repeat(50));
         subTask2.setStatus(Status.IN_PROGRESS);
         taskManager.updateSubTask(subTask2);
@@ -64,7 +64,7 @@ public class Main {
         taskManager.updateSubTask(subTask1);
         taskManager.updateSubTask(subTask2);
         System.out.println("-".repeat(50));
-        taskManager.printEpicFromId(epic1Created.getId());
+        taskManager.printEpicFromId();
         System.out.println("-".repeat(50));
         System.out.println(taskManager.showMeAllSubtaskInEpic(epic1Created));
         System.out.println("-".repeat(50));
@@ -77,8 +77,11 @@ public class Main {
         taskManager.deleteAllSubTasks();
         System.out.println("Удалил сабтаски");
         taskManager.printAllEpics();
+        taskManager.deleteEpic(epic2Created);
+        System.out.println("Удалил эпик");
+        taskManager.printAllEpics();
         taskManager.deleteAllEpics();
-        System.out.println("Удалил эпики");
+        System.out.println("Удалил все эпики");
         taskManager.printAllEpics();
 
 
