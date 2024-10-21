@@ -10,7 +10,8 @@ public class Main {
     }
 
     private static void testTask(){
-        TaskManager taskManager = new TaskManager();
+        InMemoryTaskManager taskManager = Managers.getDafault();
+        InMemoryHistoryManager historyManager = Managers.getDefaultHistory();
 
         System.out.println("1 тест: Пустой список");
         List<Task> tasks = taskManager.showMeAllTasks();
@@ -69,6 +70,22 @@ public class Main {
         System.out.println(taskManager.showMeAllSubtaskInEpic(epic1Created));
         System.out.println("-".repeat(50));
         System.out.println("-".repeat(50));
+        System.out.println("Тест Истории");
+        taskManager.getTask(task1Created.getId());
+        taskManager.getTask(task1Created.getId());
+        taskManager.getSubtask(subTask1.getId());
+        taskManager.getSubtask(subTask1.getId());
+        taskManager.getEpic(epic1Created.getId());
+        taskManager.getEpic(epic2Created.getId());
+        System.out.println(historyManager.getHistory());
+        taskManager.getTask(task1Updated.getId());
+        taskManager.getTask(task1Updated.getId());
+        taskManager.getSubtask(subTask1.getId());
+        taskManager.getSubtask(subTask1.getId());
+        taskManager.getEpic(epic1Created.getId());
+        taskManager.getEpic(epic2Created.getId());
+        System.out.println(historyManager.getHistory());
+        System.out.println("-".repeat(50));
         System.out.println("-".repeat(50));
         epic1Created.setDescription("Всё по новой");
         taskManager.updateEpic(epic1Created);
@@ -83,7 +100,7 @@ public class Main {
         taskManager.deleteAllEpics();
         System.out.println("Удалил все эпики");
         taskManager.printAllEpics();
-
+        System.out.println("-".repeat(50));
 
 
     }
